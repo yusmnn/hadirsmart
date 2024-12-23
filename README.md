@@ -1,3 +1,13 @@
+# Hadirsmart
+Hadirsmart: The Online Attendance Application is a modern solution for attendance management, featuring advanced capabilities such as face recognition and geolocation to ensure that attendance can only be recorded by verified individuals at designated locations.
+
+## Screenshots 
+| Login Page        |  Home Page   | Login Page        |  Home Page   |
+|--------------|-----------|--------------|-----------|
+| <img src="" width="300"/> | <img src="" width="300"/>      | <img src="" width="300"/> | <img src="" width="300"/>      |
+
+
+
 # 💙 Flutter Readme:
 ## SDK Recommendations
 - **Flutter**: 3.24.3
