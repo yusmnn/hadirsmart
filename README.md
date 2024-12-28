@@ -1,10 +1,25 @@
 # Hadirsmart
 Hadirsmart: The Online Attendance Application is a modern solution for attendance management, featuring advanced capabilities such as face recognition and geolocation to ensure that attendance can only be recorded by verified individuals at designated locations.
 
-## Screenshots 
-| Login Page        |  Home Page   | Login Page        |  Home Page   |
+## 🚀 Feature:
+- Auth (Employee, HRD)
+- Attendance (Check in, Check Out)
+- Request (Leave, Permission, Overtime, Face training)
+- Geofencing Radius
+- next update -> Event, Calendar, payment, UI :)
+
+## ⭐ Screenshots 
+| Login Page        |  Profile Page   | Request Attendance        |  Success Attendance   |
 |--------------|-----------|--------------|-----------|
-| <img src="" width="300"/> | <img src="" width="300"/>      | <img src="" width="300"/> | <img src="" width="300"/>      |
+| <img src="ss/login.jpg" width="300"/> | <img src="ss/profile.jpg" width="300"/>      | <img src="ss/attendance.jpg" width="300"/> | <img src="ss/attendance_2.jpg" width="300"/>      |
+
+| Dashboard HRD        |  Request Leave   | REquest FaceTraining        |  Request Permission   |
+|--------------|-----------|--------------|-----------|
+| <img src="ss/dashboard_hrd.jpg" width="300"/> | <img src="ss/request_leave_hrd.jpg" width="300"/>      | <img src="ss/request_facetraining_hrd.jpg" width="300"/> | <img src="ss/request_permission_hrd.jpg" width="300"/>      |
+
+| Dashboard Employee        |  Request Leave   | Request FaceTraining        |  Detail Request   |
+|--------------|-----------|--------------|-----------|
+| <img src="ss/dashboard_employee.jpg" width="300"/> | <img src="ss/request_leave_employee.jpg" width="300"/>      | <img src="ss/request_facetraining_employee.jpg" width="300"/> | <img src="ss/detail_facetraining.jpg" width="300"/>      |
 
 
 
@@ -27,7 +42,7 @@ dart pub run build_runner watch --delete-conflicting-outputs
 #### Note:
 The application is still under development. </>
 
-# ❤️ Laravel Redme:
+# 🔥 Laravel Readme:
 
 This guide provides instructions to set up and run a Laravel project in your local development environment.
 
