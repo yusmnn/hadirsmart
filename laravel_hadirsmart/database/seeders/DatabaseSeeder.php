@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Leading technology solutions provider.',
                 'photo' => null,
                 'address' => '123 Main Street',
-                'latitude' => 40.7128, // Contoh koordinat latitude
-                'longitude' => -74.0060, // Contoh koordinat longitude
+                'latitude' => 40.7128,
+                'longitude' => -74.0060,
                 'working_hour_start' => '08:00',
                 'working_hour_end' => '17:00',
                 'status' => 'Active',
@@ -31,26 +31,24 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Driving innovation in various industries.',
                 'photo' => null,
                 'address' => '456 Elm Street',
-                'latitude' => 34.0522, // Contoh koordinat latitude
-                'longitude' => -118.2437, // Contoh koordinat longitude
+                'latitude' => 34.0522,
+                'longitude' => -118.2437,
                 'working_hour_start' => '09:00',
                 'working_hour_end' => '18:00',
                 'status' => 'Active',
             ],
-            // Tambahkan perusahaan lainnya jika diperlukan
         ];
 
         foreach ($companies as $companyData) {
+            // Membuat perusahaan
             $company = Company::create($companyData);
 
-            $companyDomain = strtolower(str_replace(' ', '', $company->company_name));
-            $companyDomain = strtolower(str_replace('.', '', $companyDomain));
-
+            // Membuat user HRD untuk perusahaan
             for ($i = 1; $i <= 2; $i++) {
                 User::create([
                     'name' => 'HRD ' . $i,
-                    'email' => "hrd$i.$companyDomain@demo.com",
-                    'password' => bcrypt('123456'), // Anda bisa menggunakan fungsi hash untuk password
+                    'email' => "hrd$i." . str_replace([' ', '.'], '', strtolower($company->company_name)) . "@demo.com",
+                    'password' => bcrypt('123456'),
                     'company_id' => $company->id,
                     'role' => 'HRD',
                     'department' => 'IT',
@@ -59,11 +57,12 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
 
+            // Membuat user Employee untuk perusahaan
             for ($i = 1; $i <= 10; $i++) {
                 User::create([
                     'name' => 'User ' . $i,
-                    'email' => "user$i.$companyDomain@demo.com",
-                    'password' => bcrypt('123456'), // Anda bisa menggunakan fungsi hash untuk password
+                    'email' => "user$i." . str_replace([' ', '.'], '', strtolower($company->company_name)) . "@demo.com",
+                    'password' => bcrypt('123456'),
                     'company_id' => $company->id,
                     'role' => 'Employee',
                     'department' => 'IT',
@@ -74,3 +73,4 @@ class DatabaseSeeder extends Seeder
         }
     }
 }
+    

@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('company_id');
+            $table->uuid('company_id');  // Diubah ke uuid
             $table->string('role');
             $table->string('department')->nullable();
             $table->string('photo')->nullable();
@@ -44,7 +44,7 @@ return new class extends Migration
 
         // Create Companies table
         Schema::create('companies', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('company_name');
             $table->text('description')->nullable();
             $table->string('photo')->nullable();
@@ -59,8 +59,8 @@ return new class extends Migration
 
         // Create AttendanceHistories table
         Schema::create('attendance_histories', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
+            $table->uuid('id')->primary();
+            $table->uuid('user_id');
             $table->double('check_in_latitude');
             $table->double('check_in_longitude');
             $table->string('check_in_photo')->nullable();
@@ -76,9 +76,9 @@ return new class extends Migration
 
         // Create UserRequestHistories table
         Schema::create('user_request_histories', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->integer('company_id');
+            $table->uuid('id')->primary();
+            $table->uuid('user_id');
+            $table->uuid('company_id');
             $table->string('request_type');
             $table->dateTime('request_date');
             $table->double('amount')->nullable();
@@ -100,6 +100,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('jobs');
         Schema::dropIfExists('sessions');
     }
 };
